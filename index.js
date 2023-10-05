@@ -12,5 +12,5 @@ async function runExample1(
  x[8] = Document.getElementById('box9').value;
  x[9] = Document.getElementById('box10').value;
  x[10] = Document.getElementById('box11').value;
-
+ let tensorX = new onnx.Tensor(x, 'float32', (1, 11)
 )
