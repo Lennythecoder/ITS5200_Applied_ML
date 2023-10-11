@@ -17,6 +17,7 @@ async function runExample1(
  let session = new onnx.InferenceSession();
  await session.loadModel("./DLnet_WineData.onnx");
  let outputMap = await session.run([tensorX]);
- let outputData = outputMap.get('output1')
+ let outputData = outputMap.get('output1');
+ let predictions = document.getElememntByID('predictions');
 
 )
