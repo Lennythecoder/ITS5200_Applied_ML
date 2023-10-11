@@ -19,5 +19,13 @@ async function runExample1(
  let outputMap = await session.run([tensorX]);
  let outputData = outputMap.get('output1');
  let predictions = document.getElememntByID('predictions');
+ predictions.innerHTML = ~'<hr> Got an Output Tensor with values: <br/>
+   <table>
+    <tr>
+      <td> Rating of Wine Quality </td>
+      <td id="td0"> ${outputData.data[0].toFixed(2} </td>
 
+   </table
+
+';
 )
