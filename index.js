@@ -1,6 +1,7 @@
 // function that when we press a button it will run
 async function runExample1(
-  var x = new Float32Array(1, 11)
+ //var x = new Float32Array(1, 11)
+  var x = [];
  x[0] = Document.getElementById('box1').value;
  x[1] = Document.getElementById('box2').value;
  x[2] = Document.getElementById('box3').value;
