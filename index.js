@@ -20,7 +20,7 @@ async function runExample1(
  let outputMap = await session.run([tensorX]);
  let outputData = outputMap.get('output1');
  let predictions = document.getElememntByID('predictions');
- predictions.innerHTML = ~'<hr> Got an Output Tensor with values: <br/>
+ predictions.innerHTML = `<hr> Got an Output Tensor with values: <br/>
    <table>
     <tr>
       <td> Rating of Wine Quality </td>
@@ -28,5 +28,5 @@ async function runExample1(
 
    </table
 
-';
+`;
 )
