@@ -13,19 +13,20 @@ async function runExample1() {
   x[9] = document.getElementById('box10').value;
   x[10] = document.getElementById('box11').value;
   
-  let tensorX = new onnx.Tensor(x, 'float32', [1, 11]);
-
-  let session = new onnx.InferenceSession();
-  await session.loadModel("./xgboost_winequality_ort.onnx");
-  let outputMap = await session.run([tensorX]);
-  let outputData = outputMap.get('output1');
-  let predictions = document.getElementById('predictions');
+  let tensorX = new ort.Tensor(x, 'float32', [1, 11]);
+  let feeds = { 'input_name_in_model': tensorX }; 
   
+  let session = await ort.InferenceSession('xgboost_winequality_ort.onnx'); 
+  let result = await session.run(feeds);
+  let outputData = result.variable.data;
+  
+  outputData = parseFloat(outputData).toFixed(2); // Correct variable name and parsing.
+  let predictions = document.getElementById('predictions');
   predictions.innerHTML = `<hr> Got an Output Tensor with values: <br/>
     <table>
       <tr>
         <td>Rating of Wine Quality</td>
-        <td id="td0">${outputData.data[0].toFixed(2)}</td>
+        <td id="td0">${outputData}</td> <!-- Correct variable name -->
       </tr>
     </table>
   `;
