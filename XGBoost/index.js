@@ -15,7 +15,7 @@ async function runExample(){
   x[9] = document.getElementById('box10').value;
   x[10] = document.getElementById('box11').value;
 
-
+// Ort is onnx Run time
   let tensorX = new ort.Tensor('float32', x, [1, 11]);
 
   let feeds = {float_input: tensorX};
